@@ -1,0 +1,16 @@
+1939
+F
+DR. GLANCY, J
+BTS-ERS.DB
+NEVER
+149.6 cm
+ 60.6 kg
+
+? COPD
+
+           !           !PREDICTEDS ! PRE-TEST  ! PRE-TEST  ! PRE-TEST  ! PRE-TEST  ! PRE-TEST  ! POST SEL. ! POST SEL. ! POST SEL. ! POST SEL. ! POST SEL. !
+           !           !           ! TEST n°1  ! TEST n°2  ! TEST n°3  ! TEST n°4  ! TEST n°5  ! TEST n°1  ! TEST n°2  ! TEST n°3  ! TEST n°4  ! TEST n°5  !
+           !           !           ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   !
+FEV1       ! L         !      1.49 !      1.69 !      1.67 !      1.73 !      1.71 !           !      1.79 !      1.75 !      1.74 !      1.74 !           ! 
+FVC        ! L         !      1.84 !      2.38 !      2.31 !      2.29 !      2.40 !           !      2.13 !      2.34 !      2.45 !      2.25 !           ! 
+PEF        ! L/S       !      4.93 !      4.70 !      4.74 !      5.00 !      4.80 !           !      5.65 !      5.77 !      5.69 !      5.78 !           ! 

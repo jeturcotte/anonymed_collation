@@ -1,0 +1,17 @@
+1962
+F
+Dr. Ryan P
+BTS-ERS.DB
+NEVER
+159.6 cm
+131.0 kg
+
+
+           !           !PREDICTEDS ! PRE-TEST  ! PRE-TEST  ! PRE-TEST  ! PRE-TEST  ! PRE-TEST  ! POST SEL. ! POST SEL. ! POST SEL. ! POST SEL. ! POST SEL. !
+           !           !           ! TEST n°1  ! TEST n°2  ! TEST n°3  ! TEST n°4  ! TEST n°5  ! TEST n°1  ! TEST n°2  ! TEST n°3  ! TEST n°4  ! TEST n°5  !
+           !           !           ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   !
+FEV1       ! L         !      2.49 !      2.40 !      2.47 !      2.51 !           !           !      2.51 !      2.51 !      2.50 !           !           ! 
+FVC        ! L         !      2.92 !      3.00 !      3.09 !      3.08 !           !           !      3.00 !      2.97 !      2.99 !           !           ! 
+FEV1/FVC   ! %         !      79.9 !      80.0 !      79.9 !      81.4 !           !           !      83.6 !      84.4 !      83.8 !           !           ! 
+FEV1/VC    ! %         !      79.9 !      77.8 !      79.9 !      81.2 !           !           !       0.0 !       0.0 !       0.0 !           !           ! 
+PEF        ! L/S       !      6.22 !      8.86 !      8.65 !      8.42 !           !           !      9.09 !      8.86 !      8.44 !           !           ! 
