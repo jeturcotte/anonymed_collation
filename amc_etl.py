@@ -31,8 +31,18 @@ def translated(ifile):
         if not required[req]:
             print 'FAIL: %s not found in :: (%s)' % (req, ifile)
             return []
+
+    print '%u,%s,%s,%s,%3.1f,%3.1f' % (
+        required['year'],
+        required['sex'],
+        required['doctor'],
+        required['habit'],
+        required['height'],
+        required['weight']
+    )
+
     
-    return '%u,%s,%s,%s,%f,%f' % (
+    return '%u,%s,%s,%s,%3.1f,%3.1f' % (
         required['year'],
         required['sex'],
         required['doctor'],
@@ -45,15 +55,15 @@ def translated(ifile):
 def find_stat_in(line):
     """ this encapsulated series of tests checks each line provided
     for indications that it matches an expected variety of element """
-    
+
     if year_found_in(line):
         return ('year', int(line))
         
     if gender_found_in(line):
-        return ('sex', line.upper()[0])
+        return ('sex', line[0])
         
     if doctor_found_in(line):
-        return ('doctor', str(line))
+        return ('doctor', line)
     
     if good_habit_found_in(line):
         return ('habit','0,0')
@@ -161,6 +171,7 @@ def extract_float_from(line):
         print 'ERROR: more than one float found in:: %s\n' % line
     if not len(floats):
         print 'ERROR: no floats found in :: (%s)' % line
+    return float(floats[0])
         
     
 def height_found_in(line):
@@ -187,6 +198,7 @@ def process_tests_in(raw):
 
     return []
     
+    
 def raw_directory():
     """ walk the contents of the ./raw directory, 
     load each in kind, and return it! """
@@ -197,10 +209,10 @@ def raw_directory():
             files.append(file)
     return files
 
+
 if __name__ == "__main__":
     out = open('tests.csv', 'w')
     out.write('ID,DOB,Age,Sex,Doc,Years,Quantity,Height,Weight,PrePost,FVCPred,FVC1,FVC2,FVC3,FVC4,FVC5,FVCG,FVCH,FVCD,FEV1Pred,FEV11,FEV12,FEV13,FEV14,FEV15,FEV1G,FEV1H,FEV1D\n')
     for ifile in raw_directory():
         for record in translated(ifile):
-            print record
             out.write(record)
