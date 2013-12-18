@@ -19,7 +19,7 @@ def translated(ifile):
     file = open('./raw/%s' % ifile, 'r')
     lines = file.readlines()
     for line in lines:
-        (stat, val) = find_stat_in(line.upper().strip('\r\n'))
+        (stat, val) = find_stat_in(line.upper().strip('\r\n'), required)
         if not stat:
             continue
         if stat in required and val:
@@ -40,8 +40,7 @@ def translated(ifile):
         required['height'],
         required['weight']
     )
-
-    
+        
     return '%u,%s,%s,%s,%3.1f,%3.1f' % (
         required['year'],
         required['sex'],
@@ -52,7 +51,7 @@ def translated(ifile):
     )
 
 
-def find_stat_in(line):
+def find_stat_in(line, required):
     """ this encapsulated series of tests checks each line provided
     for indications that it matches an expected variety of element """
 
@@ -62,17 +61,13 @@ def find_stat_in(line):
     if gender_found_in(line):
         return ('sex', line[0])
         
-    if doctor_found_in(line):
+    if doctor_found_in(line) and not required['doctor']:
         return ('doctor', line)
     
     if good_habit_found_in(line):
         return ('habit','0,0')
-    elif quantity_and_years_found_in(line):
-        return ('habit', '%u,%u' % separate_quantity_and_years_from(line))
-    elif quantity_found_in(line):
-        return ('habit', '%u,0' % extract_integer_from(line))
-    elif years_found_in(line):
-        return ('habit', '0,%u' % extract_integer_from(line))
+    elif quantity_or_years_found_in(line):
+        return ('habit', '%d,%d' % separate_quantity_and_years_from(line.replace('/',' ')))
 
     if height_found_in(line):
         return ('height', extract_float_from(line))
@@ -115,40 +110,33 @@ def good_habit_found_in(line):
     return True if line.startswith('NEVER') else False
     
     
-def quantity_and_years_found_in(line):
+def quantity_or_years_found_in(line):
     """ information about how much and how long a person
     in the study has smoked appear to be fairly hit or miss
     so this routine is meant to determine if both have
     been provided; extraction occurs elsewhere """
     
-    return True if line.startswith('X') else False
+    years = re.findall('[\s/]YEARS?', line)
+    days = re.findall('[\s/]DAYS?', line)
+    
+    return True if years or days else False
 
 
 def separate_quantity_and_years_from(line):
     """ this routine extracts the numerics from a line
     that contains both stats re: how much and how long """
-       
-    try:
-        (years, quant) = [int(s) for s in line.split() if s.isdigit()]
-        return (years, quant)
-    except:
+    
+    y = re.search('(\d+)[\s/]+YEARS?',line)
+    q = re.search('(\d+)[\s/]+DAYS?',line)
+    
+    if not y and not q:
         print 'ERROR: years/quant not in :: (%s)' % line
-        return (0,0)
-        
-
-def quantity_found_in(line):
-    """ check the line to see if, at the very least, a 
-    number of cigarettes per year is indicated """
     
-    return True if line.startswith('X ') else False
-        
+    years = int(y.group(1)) if y else -1
+    quant = int(q.group(1)) if q else -1
     
-def years_found_in(line):
-    """ finally check to see if merely the years of a habit
-    are listed in this line """
+    return (years, quant)
     
-    return True if line.endswith('YEARS') or line.endswith('HISTORY') else False
-        
     
 def extract_integer_from(line):
     """ if we are expecting a single integer in a line,
