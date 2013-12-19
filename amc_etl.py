@@ -18,28 +18,24 @@ def translated(ifile):
  
     file = open('./raw/%s' % ifile, 'r')
     lines = file.readlines()
+    file.close()
+    
     for line in lines:
         (stat, val) = find_stat_in(line.upper().strip('\r\n'), required)
-        if not stat:
-            continue
-        if stat in required and val:
+        
+        if stat:
             required[stat] = val
-
-    file.close()
+        else:
+            (pre, post) = find_data_in(line.upper().replace('\t','!'))
+            if pre:
+                print pre
+            if post:
+                print post
 
     for req in required:
         if not required[req]:
             print 'FAIL: %s not found in :: (%s)' % (req, ifile)
             return []
-
-    print '%u,%s,%s,%s,%3.1f,%3.1f' % (
-        required['year'],
-        required['sex'],
-        required['doctor'],
-        required['habit'],
-        required['height'],
-        required['weight']
-    )
         
     return '%u,%s,%s,%s,%3.1f,%3.1f' % (
         required['year'],
@@ -174,7 +170,23 @@ def weight_found_in(line):
     instance of a weight (in kg) in the raw """
     
     return True if line.endswith('KG') else False
+
+
+def find_data_in(line):
+    """ this set of test routines expect to find lines full of 
+    mutliple data points to grab, as well as respond to the
+    potentiality that two distinct sets of data be return """
+
+    pre = None
+    post = None
+    if line.startswith('FEV1'):
+        print 'FEV1 found'
     
+    if line.startswith('FVC'):
+        print 'FVC found'
+
+    return (pre, post)
+
 
 def process_tests_in(raw):
     """ this subroutine runs through the FEV1, FVC, 
