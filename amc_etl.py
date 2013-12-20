@@ -1,5 +1,8 @@
 import os
 import re
+from datetime import date
+definition = 'ID,DOB,Age,Sex,Doc,Years,Quantity,Height,Weight,PrePost,FVCPred,FVC1,FVC2,FVC3,FVC4,FVC5,FVCG,FVCH,FVCD,FEV1Pred,FEV11,FEV12,FEV13,FEV14,FEV15,FEV1G,FEV1H,FEV1D\n'
+structure = '%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n'
 # very rough:
 
 def translated(ifile):
@@ -15,6 +18,9 @@ def translated(ifile):
         'height': False,
         'weight': False
     }
+    
+    predat = dict()
+    postdat = dict()
  
     file = open('./raw/%s' % ifile, 'r')
     lines = file.readlines()
@@ -26,25 +32,74 @@ def translated(ifile):
         if stat:
             required[stat] = val
         else:
-            (pre, post) = find_data_in(line.upper().replace('\t','!'))
+            (pre, post, test) = find_data_in(line.upper().strip('\r\n').replace('\t','!'))
             if pre:
-                print pre
+                predat[test] = pre
             if post:
-                print post
+                postdat[test] = post
 
     for req in required:
         if not required[req]:
             print 'FAIL: %s not found in :: (%s)' % (req, ifile)
-            return []
-        
-    return '%u,%s,%s,%s,%3.1f,%3.1f' % (
+            return (None, None)
+                
+    if not predat:
+        print 'FAIL: no PRE data found in (%s)' % (ifile)
+        return (None, None)
+
+    finalpre = structure % (
+        ifile,
         required['year'],
+        date.today().year - int(required['year']),
         required['sex'],
         required['doctor'],
         required['habit'],
         required['height'],
-        required['weight']
+        required['weight'],
+        predat['FVC']['pred'],
+        predat['FVC']['pre1'],
+        predat['FVC']['pre2'],
+        predat['FVC']['pre3'],
+        predat['FVC']['pre4'],
+        predat['FVC']['pre5'],
+        'TODO','TODO','TODO',
+        predat['FEV1']['pred'],
+        predat['FEV1']['pre1'],
+        predat['FEV1']['pre2'],
+        predat['FEV1']['pre3'],
+        predat['FEV1']['pre4'],
+        predat['FEV1']['pre5'],
+        'TODO','TODO','TODO'
     )
+    
+    if postdat:
+        finalpost = structure % (
+            ifile,
+            required['year'],
+            date.today().year - int(required['year']),
+            required['sex'],
+            required['doctor'],
+            required['habit'],
+            required['height'],
+            required['weight'],
+            postdat['FVC']['pred'],
+            postdat['FVC']['pre1'],
+            postdat['FVC']['pre2'],
+            postdat['FVC']['pre3'],
+            postdat['FVC']['pre4'],
+            postdat['FVC']['pre5'],
+            'TODO','TODO','TODO',
+            postdat['FEV1']['pred'],
+            postdat['FEV1']['pre1'],
+            postdat['FEV1']['pre2'],
+            postdat['FEV1']['pre3'],
+            postdat['FEV1']['pre4'],
+            postdat['FEV1']['pre5'],
+            'TODO','TODO','TODO'
+        )
+        return (finalpre, finalpost)
+        
+    return (finalpre, None)
 
 
 def find_stat_in(line, required):
@@ -63,13 +118,13 @@ def find_stat_in(line, required):
     if good_habit_found_in(line):
         return ('habit','0,0')
     elif quantity_or_years_found_in(line):
-        return ('habit', '%d,%d' % separate_quantity_and_years_from(line.replace('/',' ')))
+        return ('habit', '%s,%s' % separate_quantity_and_years_from(line.replace('/',' ')))
 
     if height_found_in(line):
-        return ('height', extract_float_from(line))
+        return ('height', extract_numeric_from(line))
         
     if weight_found_in(line):
-        return ('weight', extract_float_from(line))
+        return ('weight', extract_numeric_from(line))
 
     return (None, None)
 
@@ -78,12 +133,9 @@ def year_found_in(line):
     """ this subroutine will try to find the first
     instance of a year within the raw """
     
-    try:
-        year = int(line)
-        #TODO: test that it is a reasonable year
-        return True
-    except:
-        return False
+    year = re.search('(^\d\d\d\d)', line)
+
+    return True if year else False
    
     
 def gender_found_in(line):
@@ -134,28 +186,19 @@ def separate_quantity_and_years_from(line):
     return (years, quant)
     
     
-def extract_integer_from(line):
-    """ if we are expecting a single integer in a line,
-    let us then extract and conver it """
+def extract_numeric_from(line):
+    """ if we are expecting a single numeric from the line """
     
-    digits = re.findall('\d+', line)
-    if len(digits) > 1:
-        print 'ERROR: more than one integer found in :: %s\n' % line
-    if not len(digits):
-        print 'ERROR: no integers found in :: (%s)' % line
-    return int(digits[0])
-    
-    
-def extract_float_from(line):
-    """ if we are expecting a single float in a line,
-    let us then extract and convert it """
-    
-    floats = re.findall('\d+.\d+', line)
-    if len(floats) > 1:
-        print 'ERROR: more than one float found in:: %s\n' % line
-    if not len(floats):
-        print 'ERROR: no floats found in :: (%s)' % line
-    return float(floats[0])
+    one_float = re.search('(\d+\.\d+)', line)
+    if one_float:
+        return one_float.group(1)
+        
+    one_integer = re.search('(\d+)', line)
+    if one_integer:
+        return one_integer.group(1)
+        
+    #print 'ERROR: neither int nor float found in :: (%s)\n' % line
+    return ''
         
     
 def height_found_in(line):
@@ -177,27 +220,39 @@ def find_data_in(line):
     mutliple data points to grab, as well as respond to the
     potentiality that two distinct sets of data be return """
 
-    pre = None
-    post = None
-    if line.startswith('FEV1'):
-        print 'FEV1 found'
+    looking_for = ['test', 'units', 'pred', 'pre1', 'pre2', 'pre3', 'pre4', 'pre5', 'post1', 'post2', 'post3', 'post4', 'post5']
+    final_pre = dict()
+    final_post = dict()
+    test = None
     
-    if line.startswith('FVC'):
-        print 'FVC found'
-
-    return (pre, post)
-
-
-def process_tests_in(raw):
-    """ this subroutine runs through the FEV1, FVC, 
-    FEV1/FEV, FEV1/VC, and PEF lines, determines
-    if there is also a post stage, and returns 1
-    or 2 fully vetted lines in response """
-
-    line = '%s,%u,%u,%s,%s,%u,%u,%f,%u,%s,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f,%f\n'
-
-    return []
-    
+    the_line = line.split('!')
+    if len(the_line) <= 1:
+        return (None, None)
+    for found in the_line:
+            
+        found = found.strip(' ')
+        try:
+            field = looking_for.pop(0)
+        except:
+            print 'WARNING: ran out of expected results'
+            return (test, final_pre, final_post)
+            
+        if field == 'test' and found not in ['FEV1','FVC']:
+            return (None, None)
+        elif field == 'test':
+            # we need to be able to send back WHICH test this line is
+            test = found
+                
+        if field.startswith('pre') and field != 'pred':
+            final_pre[field] = extract_numeric_from(found)
+        elif field.startswith('post'):
+            final_post[field] = extract_numeric_from(found)
+        else:
+            final_pre[field] = found
+            final_post[field] = found
+                
+    return (test, final_pre, final_post)
+            
     
 def raw_directory():
     """ walk the contents of the ./raw directory, 
@@ -205,7 +260,7 @@ def raw_directory():
 
     files = []
     for file in os.listdir('./raw'):
-        if file.endswith('.txt') or file.endswith('.TXT'):
+        if file.upper().endswith('.TXT'):
             files.append(file)
     return files
 
