@@ -32,7 +32,7 @@ def translated(ifile):
         if stat:
             required[stat] = val
         else:
-            (pre, post, test) = find_data_in(line.upper().strip('\r\n').replace('\t','!'))
+            (test, pre, post) = find_data_in(line.upper().strip('\r\n').replace('\t','!'))
             if pre:
                 predat[test] = pre
             if post:
@@ -227,7 +227,7 @@ def find_data_in(line):
     
     the_line = line.split('!')
     if len(the_line) <= 1:
-        return (None, None)
+        return (None, None, None)
     for found in the_line:
             
         found = found.strip(' ')
@@ -238,7 +238,7 @@ def find_data_in(line):
             return (test, final_pre, final_post)
             
         if field == 'test' and found not in ['FEV1','FVC']:
-            return (None, None)
+            return (test, None, None)
         elif field == 'test':
             # we need to be able to send back WHICH test this line is
             test = found
