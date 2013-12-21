@@ -2,7 +2,7 @@ import os
 import re
 from datetime import date
 definition = 'ID,DOB,Age,Sex,Doc,Years,Quantity,Height,Weight,PrePost,FVCPred,FVC1,FVC2,FVC3,FVC4,FVC5,FVCG,FVCH,FVCD,FEV1Pred,FEV11,FEV12,FEV13,FEV14,FEV15,FEV1G,FEV1H,FEV1D\n'
-structure = '%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n'
+structure = '%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n'
 # very rough:
 
 def translated(ifile):
@@ -48,7 +48,7 @@ def translated(ifile):
         return (None, None)
 
     finalpre = structure % (
-        ifile,
+        ifile.strip('.TXT'),
         required['year'],
         date.today().year - int(required['year']),
         required['sex'],
@@ -74,7 +74,7 @@ def translated(ifile):
     
     if postdat:
         finalpost = structure % (
-            ifile,
+            ifile.strip('.TXT'),
             required['year'],
             date.today().year - int(required['year']),
             required['sex'],
@@ -83,20 +83,24 @@ def translated(ifile):
             required['height'],
             required['weight'],
             postdat['FVC']['pred'],
-            postdat['FVC']['pre1'],
-            postdat['FVC']['pre2'],
-            postdat['FVC']['pre3'],
-            postdat['FVC']['pre4'],
-            postdat['FVC']['pre5'],
+            postdat['FVC']['post1'],
+            postdat['FVC']['post2'],
+            postdat['FVC']['post3'],
+            postdat['FVC']['post4'],
+            postdat['FVC']['post5'],
             'TODO','TODO','TODO',
             postdat['FEV1']['pred'],
-            postdat['FEV1']['pre1'],
-            postdat['FEV1']['pre2'],
-            postdat['FEV1']['pre3'],
-            postdat['FEV1']['pre4'],
-            postdat['FEV1']['pre5'],
+            postdat['FEV1']['post1'],
+            postdat['FEV1']['post2'],
+            postdat['FEV1']['post3'],
+            postdat['FEV1']['post4'],
+            postdat['FEV1']['post5'],
             'TODO','TODO','TODO'
         )
+        
+        print finalpost
+        print finalpre
+        
         return (finalpre, finalpost)
         
     return (finalpre, None)
