@@ -41,12 +41,10 @@ def translated(ifile):
 
     for req in required:
         if not required[req]:
-            print 'FAIL: %s not found in :: (%s)' % (req, ifile)
-            return (None, None)
+            raise Exception('required %s not found' % req)
                 
     if not predat:
-        print 'FAIL: no PRE data found in (%s)' % (ifile)
-        return (None, None)
+        raise Exception('no PRE data found' % ifile)
 
     finalpre = structure % (
         ifile.strip('.TXT'),
@@ -190,10 +188,10 @@ def separate_quantity_and_years_from(line):
     q = re.search('(\d+)[\s/]+DAYS?',line)
     
     if not y and not q:
-        print 'ERROR: years/quant not in :: (%s)' % line
+        raise Exception('neither years/quant in :: (%s)' % line)
     
-    years = int(y.group(1)) if y else -1
-    quant = int(q.group(1)) if q else -1
+    years = int(y.group(1)) if y else ''
+    quant = int(q.group(1)) if q else ''
     
     return (years, quant)
     
@@ -245,13 +243,12 @@ def find_data_in(line):
         try:
             field = looking_for.pop(0)
         except:
-            print 'WARNING: ran out of expected results'
+            #print 'WARNING: ran out of expected results'
             return (test, final_pre, final_post)
             
         if field == 'test' and found not in needed_tests:
             return (test, None, None)
         elif field == 'test':
-            print 'found %s' % found
             # we need to be able to send back WHICH test this line is
             test = found
                 
@@ -279,7 +276,13 @@ def raw_directory():
 
 if __name__ == "__main__":
     out = open('tests.csv', 'w')
-    out.write(structure)
+    err = open('failures', 'w')
+    out.write(definition)
     for ifile in raw_directory():
-        for record in translated(ifile):
-            out.write(record)
+        try:
+            for record in translated(ifile):
+                out.write(record)
+        except Exception as e:
+            err.write('ERR -- %s -- %s' % (ifile, e))
+    out.close()
+    err.close()
