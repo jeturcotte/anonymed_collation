@@ -1,8 +1,8 @@
 import os
 import re
 from datetime import date
-definition = 'ID,DOB,Age,Sex,Doc,Years,Quantity,Height,Weight,PrePost,FVCPred,FVC1,FVC2,FVC3,FVC4,FVC5,FVCG,FVCH,FVCD,FEV1Pred,FEV11,FEV12,FEV13,FEV14,FEV15,FEV1G,FEV1H,FEV1D\n'
-structure = '%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s\n'
+definition = 'ID,DOB,Age,Sex,Doc,Years,Quantity,Height,Weight,PrePost,FVCPred,FVC1,FVC2,FVC3,FVC4,FVC5,FVCG,FVCH,FVCD,FEV1Pred,FEV11,FEV12,FEV13,FEV14,FEV15,FEV1G,FEV1H,FEV1D,PEFPred,PEF1,PEF2,PEF3,PEF4,PEF5,PEFG,PEFH,PEFD,Ratio1,Ratio2,Ratio3,Ratio4,Ratio4,RatioG,RatioH,RatioD\n'
+structure = '%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,,,,%s,%s,%s,%s,%s,%s,,,,%s,%s,%s,%s,%s,%s,,,,,,,,,,,\n'
 # very rough:
 
 def translated(ifile):
@@ -62,14 +62,18 @@ def translated(ifile):
         predat['FVC']['pre3'],
         predat['FVC']['pre4'],
         predat['FVC']['pre5'],
-        'TODO','TODO','TODO',
         predat['FEV1']['pred'],
         predat['FEV1']['pre1'],
         predat['FEV1']['pre2'],
         predat['FEV1']['pre3'],
         predat['FEV1']['pre4'],
         predat['FEV1']['pre5'],
-        'TODO','TODO','TODO'
+        predat['PEF']['pred'],
+        predat['PEF']['pre1'],
+        predat['PEF']['pre2'],
+        predat['PEF']['pre3'],
+        predat['PEF']['pre4'],
+        predat['PEF']['pre5']
     )
     
     if postdat:
@@ -88,14 +92,18 @@ def translated(ifile):
             postdat['FVC']['post3'],
             postdat['FVC']['post4'],
             postdat['FVC']['post5'],
-            'TODO','TODO','TODO',
             postdat['FEV1']['pred'],
             postdat['FEV1']['post1'],
             postdat['FEV1']['post2'],
             postdat['FEV1']['post3'],
             postdat['FEV1']['post4'],
             postdat['FEV1']['post5'],
-            'TODO','TODO','TODO'
+            postdat['PEF']['pred'],
+            postdat['PEF']['pre1'],
+            postdat['PEF']['pre2'],
+            postdat['PEF']['pre3'],
+            postdat['PEF']['pre4'],
+            postdat['PEF']['pre5']
         )
         
         print finalpost
@@ -241,7 +249,7 @@ def find_data_in(line):
             print 'WARNING: ran out of expected results'
             return (test, final_pre, final_post)
             
-        if field == 'test' and found not in ['FEV1','FVC']:
+        if field == 'test' and found not in ['FEV1','FVC','PEF']:
             return (test, None, None)
         elif field == 'test':
             # we need to be able to send back WHICH test this line is
@@ -271,7 +279,7 @@ def raw_directory():
 
 if __name__ == "__main__":
     out = open('tests.csv', 'w')
-    out.write('ID,DOB,Age,Sex,Doc,Years,Quantity,Height,Weight,PrePost,FVCPred,FVC1,FVC2,FVC3,FVC4,FVC5,FVCG,FVCH,FVCD,FEV1Pred,FEV11,FEV12,FEV13,FEV14,FEV15,FEV1G,FEV1H,FEV1D\n')
+    out.write(structure)
     for ifile in raw_directory():
         for record in translated(ifile):
             out.write(record)
