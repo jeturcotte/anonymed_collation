@@ -3,6 +3,7 @@ import re
 from datetime import date
 definition = 'ID,DOB,Age,Sex,Doc,Years,Quantity,Height,Weight,PrePost,FVCPred,FVC1,FVC2,FVC3,FVC4,FVC5,FVCG,FVCH,FVCD,FEV1Pred,FEV11,FEV12,FEV13,FEV14,FEV15,FEV1G,FEV1H,FEV1D,PEFPred,PEF1,PEF2,PEF3,PEF4,PEF5,PEFG,PEFH,PEFD,Ratio1,Ratio2,Ratio3,Ratio4,Ratio4,RatioG,RatioH,RatioD\n'
 structure = '%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,,,,%s,%s,%s,%s,%s,%s,,,,%s,%s,%s,%s,%s,%s,,,,,,,,,,,\n'
+needed_tests = ['FVC','FEV1','PEF']
 # very rough:
 
 def translated(ifile):
@@ -32,7 +33,7 @@ def translated(ifile):
         if stat:
             required[stat] = val
         else:
-            (test, pre, post) = find_data_in(line.upper().strip('\r\n').replace('\t','!'))
+            (test, pre, post) = find_data_in(line.upper().strip('\r\n').replace('\t','!').replace(' ',''))
             if pre:
                 predat[test] = pre
             if post:
@@ -56,6 +57,7 @@ def translated(ifile):
         required['habit'],
         required['height'],
         required['weight'],
+        'pre',
         predat['FVC']['pred'],
         predat['FVC']['pre1'],
         predat['FVC']['pre2'],
@@ -86,6 +88,7 @@ def translated(ifile):
             required['habit'],
             required['height'],
             required['weight'],
+            'post',
             postdat['FVC']['pred'],
             postdat['FVC']['post1'],
             postdat['FVC']['post2'],
@@ -99,19 +102,16 @@ def translated(ifile):
             postdat['FEV1']['post4'],
             postdat['FEV1']['post5'],
             postdat['PEF']['pred'],
-            postdat['PEF']['pre1'],
-            postdat['PEF']['pre2'],
-            postdat['PEF']['pre3'],
-            postdat['PEF']['pre4'],
-            postdat['PEF']['pre5']
+            postdat['PEF']['post1'],
+            postdat['PEF']['post2'],
+            postdat['PEF']['post3'],
+            postdat['PEF']['post4'],
+            postdat['PEF']['post5']
         )
         
-        print finalpost
-        print finalpre
+        return (finalpre.replace('-1',''), finalpost.replace('-1',''))
         
-        return (finalpre, finalpost)
-        
-    return (finalpre, None)
+    return (finalpre.replace('-1',''), None)
 
 
 def find_stat_in(line, required):
@@ -242,16 +242,16 @@ def find_data_in(line):
         return (None, None, None)
     for found in the_line:
             
-        found = found.strip(' ')
         try:
             field = looking_for.pop(0)
         except:
             print 'WARNING: ran out of expected results'
             return (test, final_pre, final_post)
             
-        if field == 'test' and found not in ['FEV1','FVC','PEF']:
+        if field == 'test' and found not in needed_tests:
             return (test, None, None)
         elif field == 'test':
+            print 'found %s' % found
             # we need to be able to send back WHICH test this line is
             test = found
                 
