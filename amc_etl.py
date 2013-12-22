@@ -283,6 +283,6 @@ if __name__ == "__main__":
             for record in translated(ifile):
                 out.write(record)
         except Exception as e:
-            err.write('ERR -- %s -- %s' % (ifile, e))
+            err.write('ERR -- %s -- %s\n' % (ifile, e))
     out.close()
     err.close()
