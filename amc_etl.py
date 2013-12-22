@@ -123,7 +123,7 @@ def find_stat_in(line, required):
         return ('sex', line[0])
         
     if doctor_found_in(line) and not required['doctor']:
-        return ('doctor', line.replace(',',''))
+        return ('doctor', line.replace(',','').replace('DR.',''))
     
     if good_habit_found_in(line):
         return ('habit','0,0')
