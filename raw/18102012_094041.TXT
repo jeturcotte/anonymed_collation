@@ -15,7 +15,9 @@ CATHERINE THOMAS
 
 ASTHMA
 
-
+0
+0
+0
 0
 Faux
 Faux
@@ -122,3 +124,4 @@ MIP RV  1s ! cmH2O     !           !           !           !           !        
 MIP FRC 1s ! cmH2O     !           !           !           !           !           !           !           !           !           !           !           ! 
 MEP TLC 1s ! cmH2O     !           !           !           !           !           !           !           !           !           !           !           ! 
 MEP FRC 1s ! cmH2O     !           !           !           !           !           !           !           !           !           !           !           ! 
+

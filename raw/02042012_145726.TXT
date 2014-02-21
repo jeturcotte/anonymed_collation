@@ -1,0 +1,126 @@
+1991
+F
+Dr. Ryan P
+smallchild.db
+NEVER
+152.3 cm
+ 45.0 kg
+13.50
+HEART AND LUNG
+02/04/2012
+14:57:26
+DR. RYAN, P
+CATHERINE THOMAS
+
+
+ASTHMA
+BRONCHIECTASIS
+0
+0
+0
+0
+Faux
+Faux
+
+           !           !PREDICTEDS ! PRE-TEST  ! PRE-TEST  ! PRE-TEST  ! PRE-TEST  ! PRE-TEST  ! POST SEL. ! POST SEL. ! POST SEL. ! POST SEL. ! POST SEL. !
+           !           !           ! TEST n°1  ! TEST n°2  ! TEST n°3  ! TEST n°4  ! TEST n°5  ! TEST n°1  ! TEST n°2  ! TEST n°3  ! TEST n°4  ! TEST n°5  !
+           !           !           ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   ! MEASURE   !
+
+Tidal Vol  ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+VC         ! L         !      3.17 !           !           !           !           !           !           !           !           !           !           ! 
+IRV        ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+ERV        ! L         !      1.28 !           !           !           !           !           !           !           !           !           !           ! 
+IC         ! L         !      1.89 !           !           !           !           !           !           !           !           !           !           ! 
+EC         ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+Ti         ! Sec       !           !           !           !           !           !           !           !           !           !           !           ! 
+Ttot       ! Sec       !           !           !           !           !           !           !           !           !           !           !           ! 
+Ti/Ttot    !           !           !           !           !           !           !           !           !           !           !           !           ! 
+RF         ! #/min     !           !           !           !           !           !           !           !           !           !           !           ! 
+FEV1       ! L         !      2.79 !           !           !           !           !           !           !           !           !           !           ! 
+FVC        ! L         !      3.21 !           !           !           !           !           !           !           !           !           !           ! 
+FEV1/FVC   ! %         !      84.3 !           !           !           !           !           !           !           !           !           !           ! 
+FEV1/VC    ! %         !      89.1 !           !           !           !           !           !           !           !           !           !           ! 
+PEF        ! L/S       !      6.52 !           !           !           !           !           !           !           !           !           !           ! 
+MEF        ! L/S       !      3.97 !           !           !           !           !           !           !           !           !           !           ! 
+MEF25      ! L/S       !      2.08 !           !           !           !           !           !           !           !           !           !           ! 
+MEF50      ! L/S       !      4.27 !           !           !           !           !           !           !           !           !           !           ! 
+MEF75      ! L/S       !      5.88 !           !           !           !           !           !           !           !           !           !           ! 
+FIV1       ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+PIF        ! L/S       !           !           !           !           !           !           !           !           !           !           !           ! 
+F50Ex/In   ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+MEF/FVC    ! Hz        !           !           !           !           !           !           !           !           !           !           !           ! 
+MIF        ! L/S       !           !           !           !           !           !           !           !           !           !           !           ! 
+FI25       ! L/S       !           !           !           !           !           !           !           !           !           !           !           ! 
+FI50       ! L/S       !           !           !           !           !           !           !           !           !           !           !           ! 
+MEF/VC     ! Hz        !           !           !           !           !           !           !           !           !           !           !           ! 
+TV  (f)    ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+IRV (f)    ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+ERV (f)    ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+IC  (f)    ! L         !      1.89 !           !           !           !           !           !           !           !           !           !           ! 
+EC  (f)    ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+VCompr.    ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+Ti         ! Sec       !           !           !           !           !           !           !           !           !           !           !           ! 
+FEV1/Ti    ! L/S       !           !           !           !           !           !           !           !           !           !           !           ! 
+PAlv       ! cmH2O     !           !           !           !           !           !           !           !           !           !           !           ! 
+Texp       ! Sec       !           !           !           !           !           !           !           !           !           !           !           ! 
+FVC ins    ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+VC - FVC   ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+FEV 0.5s   ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+FEV 3s     ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+FEV 6s     ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+FEV1/FEV6  ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+FVC 6s     ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+F25 6s     ! L/S       !           !           !           !           !           !           !           !           !           !           !           ! 
+D50 6s     ! L/S       !           !           !           !           !           !           !           !           !           !           !           ! 
+F75 6s     ! L/S       !           !           !           !           !           !           !           !           !           !           !           ! 
+MEF 6s     ! L/S       !           !           !           !           !           !           !           !           !           !           !           ! 
+FEV1/FVC6  ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+EV         ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+EV/FVC     ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+Vol Insp ( ! L         !      3.17 !           !           !           !           !           !           !           !           !           !           ! 
+Va         ! L         !      4.26 !           !           !           !           !           !           !           !           !           !           ! 
+Tlco       ! SI        !      8.51 !           !           !           !           !           !           !           !           !           !           ! 
+Kco        ! SI        !      2.00 !           !           !           !           !           !           !           !           !           !           ! 
+Tlco (Hb)  ! SI        !      8.51 !           !           !           !           !           !           !           !           !           !           ! 
+Kco (Hb)   ! SI        !      2.00 !           !           !           !           !           !           !           !           !           !           ! 
+RV' sb     ! L         !      1.10 !           !           !           !           !           !           !           !           !           !           ! 
+CO insp    ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+CO exp     ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+He insp    ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+He exp     ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+B.hold tim ! s         !           !           !           !           !           !           !           !           !           !           !           ! 
+TLCO Ref   ! SI        !           !           !           !           !           !           !           !           !           !           !           ! 
+TLCOcor/Rf ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+O2 ins     ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+O2 exp     ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+TLCO/Ref   ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+FRC'sb     ! L         !      2.44 !           !           !           !           !           !           !           !           !           !           ! 
+RV'/AV     ! %         !      26.2 !           !           !           !           !           !           !           !           !           !           ! 
+He-FRC     ! L         !      2.44 !           !           !           !           !           !           !           !           !           !           ! 
+He- RV     ! L         !      1.16 !           !           !           !           !           !           !           !           !           !           ! 
+He-TLC     ! L         !      4.26 !           !           !           !           !           !           !           !           !           !           ! 
+He-SV      ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+He-TV      ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+He-VC      ! L         !      3.17 !           !           !           !           !           !           !           !           !           !           ! 
+He-IRV     ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+He-ERV     ! L         !      1.28 !           !           !           !           !           !           !           !           !           !           ! 
+He-VO2     ! L/Min     !           !           !           !           !           !           !           !           !           !           !           ! 
+RV/TLC     ! %         !      27.5 !           !           !           !           !           !           !           !           !           !           ! 
+FRC/TLC    ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+He-IC      ! L         !      1.89 !           !           !           !           !           !           !           !           !           !           ! 
+He-EC      ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+He Init.   ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+He Final   ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+O2 Init.   ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+O2 Final   ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+Bal. Vol.  ! L         !           !           !           !           !           !           !           !           !           !           !           ! 
+MIP 1s     ! cmH2O     !        87 !           !           !           !           !           !           !           !           !           !           ! 
+MEP 1s     ! cmH2O     !        84 !           !           !           !           !           !           !           !           !           !           ! 
+Ins %VC    ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+Inc %TLC   ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+Exp %VC    ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+Exp %TLC   ! %         !           !           !           !           !           !           !           !           !           !           !           ! 
+MIP RV  1s ! cmH2O     !           !           !           !           !           !           !           !           !           !           !           ! 
+MIP FRC 1s ! cmH2O     !           !           !           !           !           !           !           !           !           !           !           ! 
+MEP TLC 1s ! cmH2O     !           !           !           !           !           !           !           !           !           !           !           ! 
+MEP FRC 1s ! cmH2O     !           !           !           !           !           !           !           !           !           !           !           ! 

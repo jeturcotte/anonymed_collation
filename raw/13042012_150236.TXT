@@ -15,7 +15,9 @@ MICHAEL HOWARD
 
 ? COPD
 SOBOE
-? OSA
+0
+0
+0
 0
 Faux
 Faux

@@ -3,62 +3,58 @@ ERR -- 01032012_111214.TXT -- required habit not found
 ERR -- 01102012_110248.TXT -- required habit not found
 ERR -- 01122010_160939.TXT -- required doctor not found
 ERR -- 02072012_143845.TXT -- required habit not found
+ERR -- 02092011_112845.TXT -- required habit not found
 ERR -- 03022011_151721.TXT -- required doctor not found
 ERR -- 03032010_110115.TXT -- required habit not found
 ERR -- 04032011_095843.TXT -- neither years/quant in :: (X 6 MONTHS @ 10 A DAY)
 ERR -- 04072012_110832.TXT -- required habit not found
-ERR -- 05012009_141000.TXT -- neither years/quant in :: (N 0.0 PACKS DAY)
 ERR -- 05072011_151214.TXT -- required habit not found
+ERR -- 06012009_093748.TXT -- required habit not found
 ERR -- 06042010_132746.TXT -- neither years/quant in :: (CURRENT 50 PACK YEARS)
 ERR -- 06062011_095620.TXT -- neither years/quant in :: (N 0.0 PACKS DAY)
+ERR -- 06062013_142948.TXT -- required habit not found
+ERR -- 07032013_140200.TXT -- required habit not found
 ERR -- 07072011_094126.TXT -- required habit not found
-ERR -- 07122010_131657.TXT -- required habit not found
 ERR -- 07122012_151107.TXT -- required habit not found
 ERR -- 08012010_090030.TXT -- required habit not found
 ERR -- 08032011_090738.TXT -- required habit not found
-ERR -- 09042009_105753.TXT -- required habit not found
 ERR -- 09062009_092109.TXT -- neither years/quant in :: (? REPEAT GAS TRANSFER ON CLINIC APPOINT MENT DAY)
 ERR -- 09102009_092220.TXT -- neither years/quant in :: (N 0.0 PACKS DAY)
-ERR -- 09112009_091017.TXT -- neither years/quant in :: (X 6YEARS @ 10 A DAY)
-ERR -- 11032009_085352.TXT -- neither years/quant in :: (N 0.0 PACKS DAY)
 ERR -- 11082009_090507.TXT -- required habit not found
 ERR -- 11122012_153224.TXT -- required doctor not found
 ERR -- 12012009_143110.TXT -- neither years/quant in :: (X 1.5 PACKS DAY)
 ERR -- 12082009_103450.TXT -- required habit not found
 ERR -- 12082011_084947.txt -- required year not found
 ERR -- 12122012_121905.TXT -- required habit not found
-ERR -- 13032009_120056.TXT -- required habit not found
 ERR -- 13112009_113747.TXT -- neither years/quant in :: (Y 0.5 PACKS DAY)
 ERR -- 13122012_113411.TXT -- required habit not found
 ERR -- 14052012_161906.TXT -- required habit not found
-ERR -- 15012009_091933.TXT -- neither years/quant in :: (N 0.0 PACKS DAY)
 ERR -- 15092011_152101.TXT -- required doctor not found
 ERR -- 15122010_111645.TXT -- neither years/quant in :: (X 0.5 PACKS DAY)
 ERR -- 16022012_091229.TXT -- required doctor not found
-ERR -- 16092010_141644.TXT -- required habit not found
 ERR -- 17022010_154120.TXT -- neither years/quant in :: (X 20 YEAS @ 40 A DAY)
-ERR -- 17112010_095428.TXT -- required habit not found
 ERR -- 18012010_101135.TXT -- required habit not found
 ERR -- 18022009_131743.TXT -- neither years/quant in :: (CURRENT 15 A DAY)
-ERR -- 18052010_142256.TXT -- required year not found
+ERR -- 18042013_104440.TXT -- required habit not found
 ERR -- 18122009_143518.TXT -- neither years/quant in :: (X 0.5 PACKS DAY)
 ERR -- 19052009_100942.TXT -- required habit not found
 ERR -- 19092011_102509.TXT -- required habit not found
 ERR -- 19092012_135317.TXT -- required habit not found
 ERR -- 20012011_123750.TXT -- required doctor not found
 ERR -- 21012013_084720.txt -- required habit not found
+ERR -- 21062013_092718.TXT -- required habit not found
 ERR -- 21072009_150606.TXT -- required doctor not found
 ERR -- 21122011_142847.TXT -- required habit not found
-ERR -- 23072009_105925.TXT -- required habit not found
+ERR -- 22072013_145540.TXT -- required habit not found
 ERR -- 23092010_085242.TXT -- required habit not found
-ERR -- 23102009_102629.TXT -- required habit not found
 ERR -- 23112010_160023.TXT -- required habit not found
+ERR -- 24012013_161048.TXT -- required habit not found
 ERR -- 24032011_092059.TXT -- required habit not found
 ERR -- 24062009_111455.TXT -- required habit not found
 ERR -- 24102012_150520.TXT -- required habit not found
-ERR -- 25012010_131214.TXT -- neither years/quant in :: (N 0.0 PACKS DAY)
 ERR -- 25082009_103053.TXT -- required habit not found
 ERR -- 25082009_131452.TXT -- required habit not found
+ERR -- 26042013_093709.TXT -- required habit not found
 ERR -- 26052009_090503.TXT -- required habit not found
 ERR -- 26072011_143846.TXT -- required habit not found
 ERR -- 27092010_095109.TXT -- required habit not found
@@ -66,7 +62,8 @@ ERR -- 27112012_110849.TXT -- required doctor not found
 ERR -- 28012010_103646.TXT -- neither years/quant in :: (N 0.0 PACKS DAY)
 ERR -- 29092009_100424.TXT -- required habit not found
 ERR -- 29102009_121300.TXT -- required doctor not found
+ERR -- 29112013_154432.TXT -- neither years/quant in :: (X 0.5 PACKS DAY)
 ERR -- 30032011_091320.TXT -- required habit not found
 ERR -- 30102009_135850.TXT -- required doctor not found
+ERR -- 30102012_090907.TXT -- required habit not found
 ERR -- 30122011_102221.TXT -- required habit not found
-ERR -- 31122009_112327.TXT -- required habit not found
